@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rooted — Growing Together. Raising Kind Humans.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --forest:     #2A4A1E;
+  --forest-mid: #3D6B2C;
+  --forest-lt:  #5A8F45;
+  --ivory:      #F5F0E8;
+  --warm-white: #FEFCF8;
+  --amber:      #B8792A;
+  --amber-lt:   #D4943A;
+  --sand:       #E8DECA;
+  --sand-lt:    #F0E8D8;
+  --stone:      #8A8070;
+  --ink:        #1C1A16;
+  --mid:        #4A4640;
+  --soft:       #9A9288;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--ivory);
+  color: var(--ink);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(245, 240, 232, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(42, 74, 30, 0.1);
+  padding: 0 40px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+}
+.logo-icon {
+  font-size: 1.5rem; line-height: 1;
+}
+.logo-text {
+  display: flex; flex-direction: column;
+}
+.logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem; font-weight: 700;
+  color: var(--forest); letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.logo-sub {
+  font-size: 0.62rem; color: var(--stone);
+  font-weight: 400; letter-spacing: 0.02em;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.83rem; font-weight: 500;
+  color: var(--mid); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--forest); }
+.nav-right {
+  display: flex; align-items: center; gap: 20px;
+}
+.nav-login {
+  font-size: 0.83rem; font-weight: 500;
+  color: var(--mid); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-login:hover { color: var(--forest); }
+.btn-forest {
+  background: var(--forest); color: #fff;
+  border: none; border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.83rem; font-weight: 600;
+  padding: 9px 20px; cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.btn-forest:hover { background: var(--forest-mid); }
+
+/* ── MAIN LAYOUT: 3 columns ── */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  grid-template-rows: auto;
+  min-height: calc(100vh - 64px);
+  margin-top: 64px;
+}
+
+/* ── LEFT+CENTER AREA ── */
+.main-area {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── HERO ── */
+.hero {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 0;
+  background: var(--warm-white);
+  position: relative;
+  overflow: hidden;
+  min-height: 580px;
+}
+
+/* decorative leaf in bg */
+.hero::after {
+  content: '🌿';
+  position: absolute;
+  right: 340px; top: 30px;
+  font-size: 4rem;
+  opacity: 0.06;
+  transform: rotate(20deg) scale(3);
+  pointer-events: none;
+}
+
+/* subtle concentric ring bg */
+.hero::before {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px; height: 520px;
+  border-radius: 50%;
+  border: 1px solid rgba(42, 74, 30, 0.05);
+  box-shadow:
+    0 0 0 60px rgba(42, 74, 30, 0.025),
+    0 0 0 120px rgba(42, 74, 30, 0.018),
+    0 0 0 180px rgba(42, 74, 30, 0.01);
+  pointer-events: none;
+}
+
+.hero-left {
+  padding: 52px 40px 48px;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  position: relative; z-index: 1;
+}
+.hero-trust-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(42, 74, 30, 0.06);
+  border: 1px solid rgba(42, 74, 30, 0.12);
+  border-radius: 100px;
+  padding: 5px 12px;
+  margin-bottom: 28px;
+  width: fit-content;
+}
+.trust-heart { font-size: 0.8rem; }
+.trust-text {
+  font-size: 0.72rem; font-weight: 600;
+  color: var(--forest); letter-spacing: 0.02em;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--forest);
+  margin-bottom: 20px;
+}
+h1 .amber { color: var(--amber); font-style: italic; }
+
+.hero-body {
+  font-size: 0.9rem; color: var(--mid);
+  line-height: 1.75; max-width: 340px;
+  margin-bottom: 32px; font-weight: 400;
+}
+.hero-btns {
+  display: flex; gap: 12px; margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.btn-outline {
+  background: transparent; color: var(--forest);
+  border: 1.5px solid var(--forest);
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.83rem; font-weight: 600;
+  padding: 10px 20px; cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline:hover { background: var(--forest); color: #fff; }
+.hero-social-proof {
+  display: flex; align-items: center; gap: 12px;
+}
+.proof-avatars {
+  display: flex;
+}
+.proof-avatars span {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 2px solid var(--warm-white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 600;
+  background: var(--sand);
+  color: var(--forest);
+  margin-left: -8px;
+}
+.proof-avatars span:first-child { margin-left: 0; }
+.proof-text {
+  display: flex; flex-direction: column; gap: 1px;
+}
+.proof-stars { color: var(--amber); font-size: 0.75rem; letter-spacing: 1px; }
+.proof-label {
+  font-size: 0.72rem; color: var(--stone); font-weight: 500;
+}
+
+/* HERO CENTER — photo */
+.hero-photo {
+  position: relative; overflow: hidden;
+}
+.hero-photo-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+/* Gradient fade to left */
+.hero-photo::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--warm-white) 0%, transparent 20%);
+  z-index: 1;
+  pointer-events: none;
+}
+/* Decorative botanical line art overlay */
+.leaf-deco {
+  position: absolute;
+  top: 20px; right: 20px;
+  font-size: 5rem;
+  opacity: 0.08;
+  z-index: 2;
+  pointer-events: none;
+  transform: rotate(-10deg);
+}
+
+/* article cards — float over photo */
+.article-cards {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 260px;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 16px;
+  z-index: 3;
+  background: linear-gradient(90deg, transparent 0%, rgba(245,240,232,0.85) 30%);
+}
+.art-card {
+  background: var(--warm-white);
+  border: 1px solid var(--sand);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex; gap: 12px; align-items: center;
+  box-shadow: 0 2px 12px rgba(42,74,30,0.06);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.art-card:hover { transform: translateX(-3px); box-shadow: 0 4px 20px rgba(42,74,30,0.1); }
+.art-thumb {
+  width: 52px; height: 52px; border-radius: 8px;
+  flex-shrink: 0; overflow: hidden;
+  background: var(--sand);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.art-info {}
+.art-tag {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--amber);
+  margin-bottom: 3px;
+}
+.art-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--forest); line-height: 1.3;
+  margin-bottom: 3px;
+}
+.art-read {
+  font-size: 0.62rem; color: var(--stone); font-weight: 500;
+}
+.art-view-all {
+  text-align: right;
+  font-size: 0.72rem; font-weight: 600;
+  color: var(--amber);
+  cursor: pointer;
+  padding: 4px 0;
+  display: flex; align-items: center; justify-content: flex-end; gap: 4px;
+}
+.art-view-all:hover { color: var(--amber-lt); }
+
+/* ── JOURNEY STRIP ── */
+.journey-strip {
+  background: var(--forest);
+  padding: 24px 40px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.journey-label-col {}
+.journey-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 600;
+  color: #fff; margin-bottom: 4px;
+}
+.journey-sub {
+  font-size: 0.72rem; color: rgba(255,255,255,0.5);
+}
+.journey-track {
+  display: flex; align-items: flex-start;
+  gap: 0; position: relative;
+}
+.journey-track::before {
+  content: '';
+  position: absolute;
+  top: 18px; left: 18px;
+  right: 18px;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  z-index: 0;
+}
+.j-step {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+  position: relative; z-index: 1;
+  cursor: pointer;
+}
+.j-node {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.j-step.active .j-node {
+  background: var(--amber);
+  border-color: var(--amber);
+  box-shadow: 0 0 0 4px rgba(184,121,42,0.25);
+}
+.j-step:hover .j-node {
+  border-color: rgba(255,255,255,0.5);
+}
+.j-name {
+  font-size: 0.72rem; font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+}
+.j-step.active .j-name { color: var(--amber-lt); }
+.j-range {
+  font-size: 0.6rem; color: rgba(255,255,255,0.35);
+  text-align: center; line-height: 1.3;
+}
+
+/* ── FEATURE ICONS STRIP ── */
+.features-strip {
+  background: var(--warm-white);
+  border-top: 1px solid var(--sand);
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+.feat-item {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px;
+  text-align: center;
+  padding: 16px 8px;
+  border-radius: 10px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.feat-item:hover { background: var(--sand-lt); }
+.feat-icon {
+  width: 44px; height: 44px;
+  background: var(--sand-lt);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  border: 1px solid var(--sand);
+}
+.feat-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--forest); line-height: 1.3;
+}
+.feat-desc {
+  font-size: 0.68rem; color: var(--stone);
+  line-height: 1.5;
+}
+
+/* ── RIGHT SIDEBAR ── */
+.sidebar {
+  background: var(--warm-white);
+  border-left: 1px solid var(--sand);
+  display: flex; flex-direction: column;
+  height: calc(100vh - 64px);
+  position: sticky; top: 64px;
+  overflow-y: auto;
+}
+
+/* Live community section */
+.sidebar-live {
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid var(--sand);
+}
+.live-header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.live-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem; font-weight: 700;
+  color: var(--forest);
+}
+.live-dot-wrap {
+  display: flex; align-items: center; gap: 6px;
+}
+.live-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76,175,80,0.2);
+  animation: livepulse 2s ease-in-out infinite;
+}
+@keyframes livepulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(76,175,80,0.2); }
+  50% { box-shadow: 0 0 0 6px rgba(76,175,80,0.1); }
+}
+.live-count {
+  font-size: 0.7rem; color: var(--stone); font-weight: 500;
+}
+.live-sub {
+  font-size: 0.68rem; color: var(--stone);
+  margin-bottom: 14px;
+}
+.activity-list {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.activity-item {
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.act-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--sand);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700;
+  color: var(--forest); flex-shrink: 0;
+  border: 1.5px solid var(--sand);
+}
+.act-body { flex: 1; }
+.act-name {
+  font-size: 0.75rem; font-weight: 700;
+  color: var(--forest); line-height: 1.2;
+}
+.act-action {
+  font-size: 0.72rem; color: var(--mid);
+  line-height: 1.4;
+}
+.act-time {
+  font-size: 0.62rem; color: var(--soft);
+  white-space: nowrap; margin-top: 1px;
+}
+.view-all-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.72rem; font-weight: 600;
+  color: var(--amber); text-decoration: none;
+  margin-top: 14px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.view-all-link:hover { color: var(--amber-lt); }
+
+/* Community numbers */
+.sidebar-stats {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--sand);
+}
+.stats-title {
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--stone); margin-bottom: 14px;
+}
+.stats-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.stat-cell {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  background: var(--ivory);
+  border-radius: 8px;
+  border: 1px solid var(--sand);
+}
+.stat-icon-wrap {
+  font-size: 1rem; flex-shrink: 0;
+}
+.stat-data {}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700;
+  color: var(--forest); line-height: 1;
+}
+.stat-lbl {
+  font-size: 0.6rem; color: var(--stone);
+  font-weight: 500; margin-top: 1px;
+}
+
+/* Email capture */
+.sidebar-email {
+  margin: 16px 20px 20px;
+  background: var(--forest);
+  border-radius: 12px;
+  padding: 20px 18px;
+  flex: 1;
+}
+.email-icon {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+.email-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem; font-weight: 700;
+  color: #fff; line-height: 1.35;
+  margin-bottom: 6px;
+}
+.email-sub {
+  font-size: 0.72rem; color: rgba(255,255,255,0.55);
+  line-height: 1.55; margin-bottom: 16px;
+}
+.email-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem; color: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-bottom: 8px;
+}
+.email-input::placeholder { color: rgba(255,255,255,0.35); }
+.email-input:focus { border-color: rgba(255,255,255,0.5); }
+.btn-amber {
+  width: 100%;
+  padding: 10px;
+  background: var(--amber);
+  border: none; border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem; font-weight: 700;
+  color: #fff; cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-amber:hover { background: var(--amber-lt); }
+.email-note {
+  font-size: 0.62rem; color: rgba(255,255,255,0.3);
+  margin-top: 8px; display: flex; align-items: center; gap: 4px;
+}
+.email-note span { font-size: 0.65rem; }
+
+/* ── SUCCESS STATE ── */
+.success-msg {
+  display: none;
+  background: rgba(76,175,80,0.15);
+  border: 1px solid rgba(76,175,80,0.3);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.78rem; font-weight: 600;
+  color: #4CAF50; text-align: center;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .page-wrap { grid-template-columns: 1fr 280px; }
+  .article-cards { width: 220px; }
+  .features-strip { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 860px) {
+  .page-wrap { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-photo { min-height: 300px; }
+  .article-cards { display: none; }
+  .journey-strip { grid-template-columns: 1fr; gap: 20px; }
+  .features-strip { grid-template-columns: repeat(2, 1fr); }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="logo-icon">🌳</div>
+    <div class="logo-text">
+      <span class="logo-name">Rooted</span>
+      <span class="logo-sub">Growing together. Raising kind humans.</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Articles</a></li>
+    <li><a href="#">Courses</a></li>
+    <li><a href="#">Community</a></li>
+    <li><a href="#">Resources</a></li>
+    <li><a href="#">Experts</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#" class="nav-login">Log in</a>
+    <button class="btn-forest">Join Our Community</button>
+  </div>
+</nav>
+
+<!-- PAGE WRAP: main + sidebar -->
+<div class="page-wrap">
+
+  <!-- MAIN AREA -->
+  <div class="main-area">
+
+    <!-- HERO -->
+    <div class="hero">
+      <!-- LEFT: headline + CTA -->
+      <div class="hero-left">
+        <div class="hero-trust-badge">
+          <span class="trust-heart">🤍</span>
+          <span class="trust-text">Trusted by 75,000+ parents worldwide</span>
+        </div>
+        <h1>
+          Parenting with<br>
+          <span class="amber">Purpose.</span><br>
+          Growing Stronger<br>Families.
+        </h1>
+        <p class="hero-body">
+          Evidence-based guidance, real parent stories, and a
+          supportive community for every stage of your parenting journey.
+        </p>
+        <div class="hero-btns">
+          <button class="btn-forest" onclick="document.querySelector('.email-input').focus(); document.querySelector('.sidebar').scrollIntoView({behavior:'smooth'})">Join Our Community</button>
+          <button class="btn-outline">Explore Articles</button>
+        </div>
+        <div class="hero-social-proof">
+          <div class="proof-avatars">
+            <span>👩</span>
+            <span>👨</span>
+            <span>👩</span>
+            <span>👨</span>
+            <span>👩</span>
+          </div>
+          <div class="proof-text">
+            <div class="proof-stars">★★★★★</div>
+            <div class="proof-label">4.9/5 from 2,300+ parents</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CENTER: family photo -->
+      <div class="hero-photo">
+        <!-- Real photo replaced with warm illustrated placeholder -->
+        <div style="
+          width:100%; height:100%; min-height:480px;
+          background: linear-gradient(135deg, #E8DECA 0%, #D4C9B0 30%, #C8B89A 60%, #B8A888 100%);
+          display:flex; align-items:center; justify-content:center;
+          position:relative; overflow:hidden;
+        ">
+          <!-- Warm family silhouette placeholder -->
+          <div style="text-align:center; position:relative; z-index:2;">
+            <div style="font-size:6rem; line-height:1; opacity:0.4; filter:sepia(0.3);">👩‍👦</div>
+            <div style="font-size:0.7rem; color:rgba(42,74,30,0.4); margin-top:8px; font-style:italic;">
+              Replace with real family photo
+            </div>
+          </div>
+          <!-- Warm radial glow -->
+          <div style="
+            position:absolute; inset:0;
+            background: radial-gradient(ellipse at center, rgba(245,240,232,0.3) 0%, transparent 70%);
+          "></div>
+          <!-- Decorative botanical -->
+          <div style="
+            position:absolute; top:10px; right:270px;
+            font-size:3rem; opacity:0.12; transform:rotate(15deg);
+          ">🌿</div>
+        </div>
+
+        <!-- Article cards overlay -->
+        <div class="article-cards">
+          <div class="art-card">
+            <div class="art-thumb">👦</div>
+            <div class="art-info">
+              <div class="art-tag">New Article</div>
+              <div class="art-title">Helping Kids Manage Big Emotions</div>
+              <div class="art-read">7 min read</div>
+            </div>
+          </div>
+          <div class="art-card">
+            <div class="art-thumb">👨‍👩‍👧</div>
+            <div class="art-info">
+              <div class="art-tag">Parent Story</div>
+              <div class="art-title">From Overwhelmed to Confident</div>
+              <div class="art-read">10 min read</div>
+            </div>
+          </div>
+          <div class="art-card">
+            <div class="art-thumb">🌱</div>
+            <div class="art-info">
+              <div class="art-tag">Guide</div>
+              <div class="art-title">Positive Discipline That Works</div>
+              <div class="art-read">12 min read</div>
+            </div>
+          </div>
+          <div class="art-view-all">View all articles →</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOURNEY STRIP -->
+    <div class="journey-strip">
+      <div class="journey-label-col">
+        <div class="journey-title">Your Parenting Journey</div>
+        <div class="journey-sub">Guidance and support for every stage</div>
+      </div>
+      <div class="journey-track">
+        <div class="j-step">
+          <div class="j-node">🤰</div>
+          <div class="j-name">Pregnancy</div>
+          <div class="j-range">Preparing for<br>your little one</div>
+        </div>
+        <div class="j-step">
+          <div class="j-node">🍼</div>
+          <div class="j-name">Newborn</div>
+          <div class="j-range">0–12 months</div>
+        </div>
+        <div class="j-step active">
+          <div class="j-node">🧸</div>
+          <div class="j-name">Toddler</div>
+          <div class="j-range">1–3 years</div>
+        </div>
+        <div class="j-step">
+          <div class="j-node">✏️</div>
+          <div class="j-name">Preschool</div>
+          <div class="j-range">3–5 years</div>
+        </div>
+        <div class="j-step">
+          <div class="j-node">🎒</div>
+          <div class="j-name">School Age</div>
+          <div class="j-range">6–12 years</div>
+        </div>
+        <div class="j-step">
+          <div class="j-node">🎓</div>
+          <div class="j-name">Teen</div>
+          <div class="j-range">13+ years</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURE ICONS -->
+    <div class="features-strip">
+      <div class="feat-item">
+        <div class="feat-icon">🌿</div>
+        <div class="feat-name">Expert Guidance</div>
+        <div class="feat-desc">Advice from parenting experts and child psychologists.</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">👨‍👩‍👧</div>
+        <div class="feat-name">Real Community</div>
+        <div class="feat-desc">Connect with parents who get it. You're not alone.</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">🗂️</div>
+        <div class="feat-name">Practical Tools</div>
+        <div class="feat-desc">Printables, checklists and tools for everyday parenting.</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">🔬</div>
+        <div class="feat-name">Evidence-Based</div>
+        <div class="feat-desc">Trusted by experts. Backed by research.</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">🎓</div>
+        <div class="feat-name">Courses & Workshops</div>
+        <div class="feat-desc">Learn at your pace with step-by-step courses.</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">📚</div>
+        <div class="feat-name">Resources Library</div>
+        <div class="feat-desc">Articles, guides and downloads at your fingertips.</div>
+      </div>
+    </div>
+
+  </div><!-- /main-area -->
+
+  <!-- RIGHT SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- Live Community -->
+    <div class="sidebar-live">
+      <div class="live-header">
+        <div class="live-title">Live Community</div>
+        <div class="live-dot-wrap">
+          <div class="live-dot"></div>
+          <span class="live-count">3,452 parents online</span>
+        </div>
+      </div>
+
+      <div class="activity-list" id="activityList">
+        <div class="activity-item">
+          <div class="act-avatar" style="background:#E8D8C8">J</div>
+          <div class="act-body">
+            <div class="act-name">Jessica M.</div>
+            <div class="act-action">Just shared a story about toddler sleep</div>
+          </div>
+          <div class="act-time">2m ago</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-avatar" style="background:#D8E4D0">R</div>
+          <div class="act-body">
+            <div class="act-name">Robert D.</div>
+            <div class="act-action">Asked a question about picky eating</div>
+          </div>
+          <div class="act-time">8m ago</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-avatar" style="background:#D8D0E4">A</div>
+          <div class="act-body">
+            <div class="act-name">Aisha K.</div>
+            <div class="act-action">Joined the community</div>
+          </div>
+          <div class="act-time">15m ago</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-avatar" style="background:#E4D8D0">M</div>
+          <div class="act-body">
+            <div class="act-name">Mike T.</div>
+            <div class="act-action">Shared a helpful resource on discipline</div>
+          </div>
+          <div class="act-time">22m ago</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-avatar" style="background:#D0E4E0">S</div>
+          <div class="act-body">
+            <div class="act-name">Sarah L.</div>
+            <div class="act-action">Completed the Newborn course</div>
+          </div>
+          <div class="act-time">35m ago</div>
+        </div>
+      </div>
+      <a class="view-all-link" href="#">View all activity →</a>
+    </div>
+
+    <!-- Stats -->
+    <div class="sidebar-stats">
+      <div class="stats-title">Our Community in Numbers</div>
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-icon-wrap">👨‍👩‍👧</div>
+          <div class="stat-data">
+            <div class="stat-num">75,000+</div>
+            <div class="stat-lbl">Active Parents</div>
+          </div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-icon-wrap">📝</div>
+          <div class="stat-data">
+            <div class="stat-num">2,300+</div>
+            <div class="stat-lbl">Expert Articles</div>
+          </div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-icon-wrap">🎓</div>
+          <div class="stat-data">
+            <div class="stat-num">120+</div>
+            <div class="stat-lbl">Courses & Guides</div>
+          </div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-icon-wrap">❤️</div>
+          <div class="stat-data">
+            <div class="stat-num">98%</div>
+            <div class="stat-lbl">Recommend Us</div>
+          </div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-icon-wrap">💬</div>
+          <div class="stat-data">
+            <div class="stat-num">8,934</div>
+            <div class="stat-lbl">Posts This Week</div>
+          </div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-icon-wrap">🛠️</div>
+          <div class="stat-data">
+            <div class="stat-num">500+</div>
+            <div class="stat-lbl">Resources & Tools</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Capture -->
+    <div class="sidebar-email">
+      <div class="email-icon">✉️</div>
+      <div class="email-title">Parenting support, straight to your inbox</div>
+      <div class="email-sub">Get weekly tips, expert advice and community highlights.</div>
+      <div id="emailFormWrap">
+        <input class="email-input" type="email" id="sidebarEmail" placeholder="Enter your email"/>
+        <button class="btn-amber" onclick="handleEmailSignup()">Subscribe</button>
+        <div class="email-note">
+          <span>🔒</span> No spam. Unsubscribe anytime.
+        </div>
+      </div>
+      <div class="success-msg" id="emailSuccess">
+        🌱 Welcome to the community!
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+
+</div><!-- /page-wrap -->
+
+<script>
+  // Live activity ticker — adds new items every 20s
+  const activities = [
+    { name: 'Priya C.', action: 'Bookmarked: Screen Time at Age 7', time: 'just now', bg: '#E8D4D8' },
+    { name: 'David K.', action: 'Joined the Toddler Parents group', time: 'just now', bg: '#D4E8D4' },
+    { name: 'Emma R.', action: 'Left a review for Dr. Sarah Chen ★★★★★', time: 'just now', bg: '#D4D8E8' },
+    { name: 'Carlos M.', action: 'Completed: Gentle Discipline course', time: 'just now', bg: '#E8E4D4' },
+  ];
+  let actIdx = 0;
+  setInterval(() => {
+    const list = document.getElementById('activityList');
+    const act = activities[actIdx % activities.length];
+    const item = document.createElement('div');
+    item.className = 'activity-item';
+    item.style.opacity = '0';
+    item.style.transition = 'opacity 0.5s';
+    item.innerHTML = `
+      <div class="act-avatar" style="background:${act.bg}">${act.name[0]}</div>
+      <div class="act-body">
+        <div class="act-name">${act.name}</div>
+        <div class="act-action">${act.action}</div>
+      </div>
+      <div class="act-time">${act.time}</div>
+    `;
+    list.insertBefore(item, list.firstChild);
+    setTimeout(() => { item.style.opacity = '1'; }, 50);
+    // Remove oldest if more than 6
+    if (list.children.length > 6) list.removeChild(list.lastChild);
+    actIdx++;
+  }, 18000);
+
+  // Email signup
+  function handleEmailSignup() {
+    const input = document.getElementById('sidebarEmail');
+    const email = input.value.trim();
+    if (!email || !email.includes('@')) {
+      input.style.borderColor = 'rgba(220,80,80,0.5)';
+      input.placeholder = 'Please enter a valid email';
+      setTimeout(() => {
+        input.style.borderColor = '';
+        input.placeholder = 'Enter your email';
+      }, 2000);
+      return;
+    }
+    document.getElementById('emailFormWrap').style.display = 'none';
+    document.getElementById('emailSuccess').style.display = 'block';
+    // Store
+    try {
+      const s = JSON.parse(localStorage.getItem('rooted_subs') || '[]');
+      s.push({ email, ts: new Date().toISOString() });
+      localStorage.setItem('rooted_subs', JSON.stringify(s));
+    } catch(e) {}
+  }
+
+  // Journey step click
+  document.querySelectorAll('.j-step').forEach(step => {
+    step.addEventListener('click', () => {
+      document.querySelectorAll('.j-step').forEach(s => s.classList.remove('active'));
+      step.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
