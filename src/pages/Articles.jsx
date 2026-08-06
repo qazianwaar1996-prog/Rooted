@@ -28,7 +28,7 @@ export default function Articles() {
       />
 
       {/* Page header */}
-      <header className="articles-header">
+      <header className="articles-header" data-reveal="up">
         <h1>Expert Parenting Guides</h1>
         <p>Evidence-based articles, real parent stories, and practical guidance for every stage of your parenting journey.</p>
       </header>
@@ -49,7 +49,7 @@ export default function Articles() {
       {/* Article grid */}
       <section className="articles-grid" aria-label="Articles">
         {visible.map(article => (
-          <Link to={`/articles/${article.slug}`} key={article.slug} className="article-card">
+          <Link to={`/articles/${article.slug}`} key={article.slug} className="article-card" data-reveal="fade">
             <div className="article-card-tag" style={{ color: getCategoryColor(article.category) }}>
               {article.category}
             </div>

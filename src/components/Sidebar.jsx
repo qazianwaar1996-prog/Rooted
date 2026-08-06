@@ -35,9 +35,9 @@ export default function Sidebar() {
             { name: 'Aisha K.', action: 'Joined the community', time: '15m ago', bg: '#D8D0E4', letter: 'A' },
             { name: 'Mike T.', action: 'Shared a helpful resource on discipline', time: '22m ago', bg: '#E4D8D0', letter: 'M' },
             { name: 'Sarah L.', action: 'Completed the Newborn course', time: '35m ago', bg: '#D0E4E0', letter: 'S' },
-          ].map((item) => (
-            <div key={item.name + item.time} className="activity-item">
-              <div className="act-avatar" style={{ background: item.bg }}>{item.letter}</div>
+          ].map((item, index) => (
+            <div key={item.name + item.time} className="activity-item" style={{ '--stagger': `${index * 70}ms` }}>
+              <div className="act-avatar" style={{ background: item.bg }} aria-hidden="true">{item.letter}</div>
               <div className="act-body">
                 <div className="act-name">{item.name}</div>
                 <div className="act-action">{item.action}</div>
@@ -46,7 +46,7 @@ export default function Sidebar() {
             </div>
           ))}
         </div>
-        <a href="#" className="view-all-link">View all activity →</a>
+        <a href="#" className="view-all-link">View all activity <span className="view-all-arrow" aria-hidden="true">→</span></a>
       </div>
 
       {/* Stats */}
@@ -80,14 +80,17 @@ export default function Sidebar() {
 
         {!success ? (
           <>
+            <label className="sr-only" htmlFor="sidebar-email-input">Email address</label>
             <input
+              id="sidebar-email-input"
               className={`email-input ${error ? 'email-input-error' : ''}`}
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
+              aria-label="Email address"
             />
-            <button className="btn-amber" onClick={handleSubscribe}>Subscribe</button>
+            <button className="btn-amber" type="button" onClick={handleSubscribe}>Subscribe</button>
             <div className="email-note">
               <span>🔒</span> No spam. Unsubscribe anytime.
             </div>

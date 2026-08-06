@@ -28,7 +28,7 @@ export default function Experts() {
         canonicalUrl="https://rooted-parenting.com/experts"
       />
 
-      <header className="experts-header">
+      <header className="experts-header" data-reveal="up">
         <h1>Verified Parenting Experts</h1>
         <p>Connect with certified professionals who understand real parenting challenges.</p>
       </header>
@@ -52,7 +52,7 @@ export default function Experts() {
 
       <section className="experts-grid" aria-label="Experts">
         {filtered.map(expert => (
-          <Link to={`/experts/${expert.id}`} key={expert.id} className="expert-card">
+          <Link to={`/experts/${expert.id}`} key={expert.id} className="expert-card" data-reveal="fade">
             <div className="expert-card-top">
               <div className="expert-avatar" aria-label={`${expert.name} avatar`}>{expert.avatar}</div>
               <div className="expert-header-info">
