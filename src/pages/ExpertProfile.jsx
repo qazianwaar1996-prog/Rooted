@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import expertsData from '../data/experts.json';
+import SEOHead from '../components/SEOHead';
+import { JsonLd, personSchema, breadcrumbSchema } from '../components/StructuredData';
 import '../styles/app.css';
 
 export default function ExpertProfile() {
@@ -13,11 +15,14 @@ export default function ExpertProfile() {
   if (!expert) {
     return (
       <div style={{ padding: '120px 40px', textAlign: 'center', maxWidth: 1280, margin: '0 auto' }}>
+        <SEOHead title="Expert Not Found — Rooted" noIndex />
         <h1 style={{ fontFamily: 'var(--font-display)', color: 'var(--forest)' }}>Expert Not Found</h1>
         <Link to="/experts" style={{ color: 'var(--amber)', textDecoration: 'none', fontWeight: 600 }}>Back to Experts</Link>
       </div>
     );
   }
+
+  const profileUrl = `https://rooted-parenting.com/experts/${expert.id}`;
 
   const handleBooking = (e) => {
     e.preventDefault();
@@ -31,6 +36,26 @@ export default function ExpertProfile() {
 
   return (
     <div className="expert-profile-page">
+      <SEOHead
+        title={`${expert.name} — ${expert.speciality} | Rooted`}
+        description={`${expert.name} — ${expert.credential}. ${expert.bio.slice(0, 150)}… Book a 1-on-1 session for personalised parenting guidance.`}
+        ogType="profile"
+        canonicalUrl={profileUrl}
+        keywords={`${expert.name}, ${expert.speciality}, parenting expert, child psychologist, sleep coach`}
+      >
+        <JsonLd data={personSchema({
+          name: expert.name,
+          jobTitle: expert.speciality,
+          description: expert.bio,
+          url: profileUrl,
+        })} />
+        <JsonLd data={breadcrumbSchema([
+          { name: 'Rooted', url: 'https://rooted-parenting.com' },
+          { name: 'Experts', url: 'https://rooted-parenting.com/experts' },
+          { name: expert.name, url: profileUrl },
+        ])} />
+      </SEOHead>
+
       {/* Hero */}
       <header className="expert-hero">
         <div className="expert-hero-avatar" aria-label={`${expert.name} avatar`}>

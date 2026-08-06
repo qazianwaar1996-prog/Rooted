@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SEOHead from '../components/SEOHead';
 import '../styles/app.css';
 
 export default function ScreenTimeCalculator() {
@@ -28,31 +29,11 @@ export default function ScreenTimeCalculator() {
   const rec = recommendations[age] || recommendations[6];
 
   const tips = {
-    '0-2 years': [
-      'Prioritize interactive play over screens.',
-      'Video chat with family is more valuable than passive viewing.',
-      'Avoid screens entirely for children under 18 months when possible.',
-    ],
-    '3-5 years': [
-      'Choose high-quality educational content co-viewed with parents.',
-      'Keep screen time to 1 hour or less per day.',
-      'Avoid screens during meals and 1 hour before bedtime.',
-    ],
-    '6-9 years': [
-      'Balance screen time with physical activity and sleep.',
-      'Favor educational and creative content over pure entertainment.',
-      'Establish family screen time rules together with your child.',
-    ],
-    '10-12 years': [
-      'Encourage screen use for creation, not just consumption.',
-      'Monitor social media readiness; delay when possible.',
-      'Keep devices out of bedrooms overnight.',
-    ],
-    '13-17 years': [
-      'Discuss digital citizenship and online safety openly.',
-      'Encourage breaks and offline hobbies regularly.',
-      'Model healthy screen habits yourself.',
-    ],
+    '0-2 years': ['Prioritize interactive play over screens.', 'Video chat with family is more valuable than passive viewing.', 'Avoid screens entirely for children under 18 months when possible.'],
+    '3-5 years': ['Choose high-quality educational content co-viewed with parents.', 'Keep screen time to 1 hour or less per day.', 'Avoid screens during meals and 1 hour before bedtime.'],
+    '6-9 years': ['Balance screen time with physical activity and sleep.', 'Favor educational and creative content over pure entertainment.', 'Establish family screen time rules together with your child.'],
+    '10-12 years': ['Encourage screen use for creation, not just consumption.', 'Monitor social media readiness; delay when possible.', 'Keep devices out of bedrooms overnight.'],
+    '13-17 years': ['Discuss digital citizenship and online safety openly.', 'Encourage breaks and offline hobbies regularly.', 'Model healthy screen habits yourself.'],
   };
 
   const ageGroup = age <= 2 ? '0-2 years' : age <= 5 ? '3-5 years' : age <= 9 ? '6-9 years' : age <= 12 ? '10-12 years' : '13-17 years';
@@ -60,6 +41,13 @@ export default function ScreenTimeCalculator() {
 
   return (
     <div className="calculator-page">
+      <SEOHead
+        title="Screen Time Calculator — Age-Appropriate Recommendations by Age"
+        description="Calculate healthy screen time limits by your child's age. Evidence-based recommendations for educational and entertainment screen time, backed by the latest pediatric research. Tips for every age group."
+        keywords="screen time kids age, screen time calculator, screen time recommendations 2026, how much screen time by age, AAP screen time guidelines"
+        canonicalUrl="https://rooted-parenting.com/resources/screen-time"
+      />
+
       <header className="calculator-header">
         <h1>Screen Time Calculator</h1>
         <p>Age-appropriate recommendations backed by pediatric guidelines.</p>
@@ -70,14 +58,7 @@ export default function ScreenTimeCalculator() {
           <label htmlFor="age-slider" className="calculator-label">
             Child's Age: <strong>{age} years</strong>
           </label>
-          <input
-            id="age-slider"
-            type="range"
-            min={0}
-            max={17}
-            value={age}
-            onChange={e => setAge(Number(e.target.value))}
-          />
+          <input id="age-slider" type="range" min={0} max={17} value={age} onChange={e => setAge(Number(e.target.value))} />
         </div>
       </section>
 
@@ -89,25 +70,18 @@ export default function ScreenTimeCalculator() {
             <span className="results-total-label">hours / day</span>
           </div>
         </div>
-
         <div className="results-bars">
           <div className="result-bar-wrapper">
             <div className="result-bar-label">Educational</div>
             <div className="result-bar-track">
-              <div
-                className="result-bar-fill result-bar-educational"
-                style={{ width: `${(rec.educational / 3) * 100}%` }}
-              />
+              <div className="result-bar-fill result-bar-educational" style={{ width: `${(rec.educational / 3) * 100}%` }} />
             </div>
             <span className="result-bar-value">{rec.educational}h</span>
           </div>
           <div className="result-bar-wrapper">
             <div className="result-bar-label">Entertainment</div>
             <div className="result-bar-track">
-              <div
-                className="result-bar-fill result-bar-entertainment"
-                style={{ width: `${(rec.entertainment / 3) * 100}%` }}
-              />
+              <div className="result-bar-fill result-bar-entertainment" style={{ width: `${(rec.entertainment / 3) * 100}%` }} />
             </div>
             <span className="result-bar-value">{rec.entertainment}h</span>
           </div>
@@ -117,9 +91,7 @@ export default function ScreenTimeCalculator() {
       <section className="tips-section" aria-label="Expert tips">
         <h2>Expert Tips for This Age</h2>
         <ul className="tips-list">
-          {ageTips.map((tip, i) => (
-            <li key={i} className="tip-item">{tip}</li>
-          ))}
+          {ageTips.map((tip, i) => (<li key={i} className="tip-item">{tip}</li>))}
         </ul>
       </section>
     </div>

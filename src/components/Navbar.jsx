@@ -1,9 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
+import { isAuthenticated } from '../services/api';
 import '../styles/design-system.css';
 
 export default function Navbar() {
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
+  const authed = isAuthenticated();
 
   return (
     <nav className="navbar">
@@ -40,8 +42,14 @@ export default function Navbar() {
 
         {/* Right side */}
         <div className="nav-right">
-          <Link to="/dashboard" className="nav-login">Log in</Link>
-          <Link to="/pricing" className="btn-forest">Join Our Community</Link>
+          {authed ? (
+            <Link to="/dashboard" className="btn-forest">My Dashboard</Link>
+          ) : (
+            <>
+              <Link to="/login" className="nav-login">Log in</Link>
+              <Link to="/pricing" className="btn-forest">Join Our Community</Link>
+            </>
+          )}
         </div>
       </div>
     </nav>
