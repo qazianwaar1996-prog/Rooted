@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
+import Reveal from './components/Reveal';
 
 // ── Code-split lazily loaded pages ──────────────────────────
 const Home = lazy(() => import('./pages/Home'));
@@ -30,6 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app-root">
+        <Reveal />
         <Navbar />
         <main className="main-content">
           <Routes>

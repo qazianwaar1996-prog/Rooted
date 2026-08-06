@@ -32,14 +32,14 @@ export default function Resources() {
         ])} />
       </SEOHead>
 
-      <header className="resources-header">
+      <header className="resources-header" data-reveal="up">
         <h1>Tools Built for Real Parents</h1>
         <p>Interactive calculators, checklists, and guides you can use today—no account required.</p>
       </header>
 
       <section className="tools-grid" aria-label="Parenting tools">
         {tools.map(tool => (
-          <Link to={tool.path} key={tool.name} className="tool-card">
+          <Link to={tool.path} key={tool.name} className="tool-card" data-reveal="fade">
             <div className="tool-card-icon">{tool.icon}</div>
             <h2 className="tool-card-name">{tool.name}</h2>
             <p className="tool-card-desc">{tool.desc}</p>
@@ -52,7 +52,7 @@ export default function Resources() {
         <h2>Downloadable Resources</h2>
         <div className="downloads-grid">
           {downloads.map(item => (
-            <a href="#" key={item.title} className="download-card">
+            <a href="#" key={item.title} className="download-card" data-reveal="fade">
               <div className="download-card-icon">{item.icon}</div>
               <div className="download-card-info">
                 <h3 className="download-card-title">{item.title}</h3>
