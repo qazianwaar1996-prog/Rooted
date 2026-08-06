@@ -21,12 +21,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from routers import auth, users, bookings, newsletter
+from routers import auth, users, bookings, newsletter, community, payments, seo, emails, admin
 
 app.include_router(auth.router)
 app.include_router(users.router)
 app.include_router(bookings.router)
 app.include_router(newsletter.router)
+app.include_router(community.router)
+app.include_router(payments.router)
+app.include_router(seo.router)
+app.include_router(emails.router)
+app.include_router(admin.router)
 
 @app.get("/health")
 async def health_check():

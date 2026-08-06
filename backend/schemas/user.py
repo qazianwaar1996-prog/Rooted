@@ -92,3 +92,39 @@ class ExpertBookingOut(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+# ── Payments / Stripe ─────────────────────────────────────────
+
+class CreateCheckoutSessionRequest(BaseModel):
+    success_url: Optional[str] = None
+    cancel_url: Optional[str] = None
+
+
+class CheckoutSessionResponse(BaseModel):
+    url: str
+
+
+class SubscriptionStatusResponse(BaseModel):
+    tier: str
+    renewal_date: Optional[datetime] = None
+    cancel_at_period_end: bool = False
+
+
+class CancelSubscriptionResponse(BaseModel):
+    message: str
+    tier: str
+    renewal_date: Optional[datetime] = None
+
+
+class BookExpertSessionRequest(BaseModel):
+    expert_id: int
+    slot_datetime: datetime
+    notes: Optional[str] = None
+    success_url: Optional[str] = None
+    cancel_url: Optional[str] = None
+
+
+class BookExpertSessionResponse(BaseModel):
+    url: str
+    booking_id: int

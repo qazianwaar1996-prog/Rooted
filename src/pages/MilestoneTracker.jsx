@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SEOHead from '../components/SEOHead';
 import '../styles/app.css';
 
 const milestoneData = {
@@ -115,32 +116,26 @@ export default function MilestoneTracker() {
 
   return (
     <div className="tracker-page">
+      <SEOHead
+        title="Free Milestone Tracker — Track Your Child's Development by Age"
+        description="Track your child's developmental milestones with age-appropriate checklists. Monitor speech, motor skills, social development, and cognitive growth from newborn to toddler. Know when to talk to your pediatrician."
+        keywords="toddler milestones, child development tracker, milestone checklist, 18 month milestones, baby milestones"
+        canonicalUrl="https://rooted-parenting.com/resources/milestone-tracker"
+      />
+
       <header className="tracker-header">
         <h1>Milestone Tracker</h1>
-        <p>Track your child\'s development with age-appropriate milestone checklists.</p>
+        <p>Track your child's development with age-appropriate milestone checklists.</p>
       </header>
 
       <form className="tracker-form" onSubmit={handleSubmit}>
         <div className="tracker-input-row">
           <label htmlFor="childName">Child's Name</label>
-          <input
-            id="childName"
-            type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}
-            placeholder="Enter first name"
-            required
-          />
+          <input id="childName" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Enter first name" required />
         </div>
         <div className="tracker-input-row">
           <label htmlFor="dob">Date of Birth</label>
-          <input
-            id="dob"
-            type="date"
-            value={dob}
-            onChange={e => setDob(e.target.value)}
-            required
-          />
+          <input id="dob" type="date" value={dob} onChange={e => setDob(e.target.value)} required />
         </div>
         <button type="submit" className="btn-forest" style={{ marginTop: '8px' }}>Show Milestones</button>
       </form>
@@ -151,7 +146,6 @@ export default function MilestoneTracker() {
             <h2>Results for {results.name}</h2>
             <p className="tracker-age">Age: {results.years > 0 ? results.years + ' year' + (results.years > 1 ? 's' : '') : ''} {results.months > 0 ? results.months + ' month' + (results.months > 1 ? 's' : '') : ''} — <strong>{results.group}</strong></p>
           </div>
-
           {Object.entries(results.groupData).map(([category, items]) => (
             <div key={category} className="milestone-category">
               <h3>{category}</h3>
@@ -161,15 +155,9 @@ export default function MilestoneTracker() {
                   return (
                     <li key={key} className="milestone-item">
                       <label className="milestone-checkbox-label">
-                        <input
-                          type="checkbox"
-                          checked={!!checked[key]}
-                          onChange={() => toggleCheck(category, i)}
-                        />
+                        <input type="checkbox" checked={!!checked[key]} onChange={() => toggleCheck(category, i)} />
                         <span className="milestone-check-visual" />
-                        <span className="milestone-text">
-                          <strong>{item.text}</strong>
-                        </span>
+                        <span className="milestone-text"><strong>{item.text}</strong></span>
                       </label>
                     </li>
                   );
@@ -177,7 +165,6 @@ export default function MilestoneTracker() {
               </ul>
             </div>
           ))}
-
           <div className="milestone-doctor-section">
             <h3>When to Talk to Your Doctor</h3>
             <p>Consider discussing milestones with your pediatrician if you notice any of the following:</p>
@@ -188,7 +175,6 @@ export default function MilestoneTracker() {
               <li>Changes in behavior or development that seem sudden</li>
             </ul>
           </div>
-
           <button className="btn-forest" onClick={shareResult}>Share Result</button>
         </section>
       )}

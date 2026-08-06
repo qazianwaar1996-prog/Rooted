@@ -1,25 +1,12 @@
 import { Link } from 'react-router-dom';
+import SEOHead from '../components/SEOHead';
+import { JsonLd, faqSchema } from '../components/StructuredData';
 import '../styles/app.css';
 
 const tools = [
-  {
-    name: 'Milestone Tracker',
-    desc: 'Track your child\'s development milestones by age with personalized checklists.',
-    icon: '📋',
-    path: '/resources/milestone-tracker',
-  },
-  {
-    name: 'Screen Time Calculator',
-    desc: 'Calculate age-appropriate daily screen time recommendations for your family.',
-    icon: '⏱️',
-    path: '/resources/screen-time',
-  },
-  {
-    name: 'Parenting Style Quiz',
-    desc: 'Discover your parenting approach and get tailored guidance for your family.',
-    icon: '🎯',
-    path: '/resources/quiz',
-  },
+  { name: 'Milestone Tracker', desc: "Track your child's development milestones by age with personalized checklists.", icon: '📋', path: '/resources/milestone-tracker' },
+  { name: 'Screen Time Calculator', desc: 'Calculate age-appropriate daily screen time recommendations for your family.', icon: '⏱️', path: '/resources/screen-time' },
+  { name: 'Parenting Style Quiz', desc: 'Discover your parenting approach and get tailored guidance for your family.', icon: '🎯', path: '/resources/quiz' },
 ];
 
 const downloads = [
@@ -32,6 +19,19 @@ const downloads = [
 export default function Resources() {
   return (
     <div className="resources-page">
+      <SEOHead
+        title="Free Parenting Tools — Milestone Tracker, Screen Time Calculator & Quiz"
+        description="Free interactive parenting tools: track your child's developmental milestones, calculate healthy screen time by age, and discover your parenting style. No account required."
+        keywords="toddler milestones, screen time kids age, parenting style quiz, milestone tracker, screen time calculator"
+        canonicalUrl="https://rooted-parenting.com/resources"
+      >
+        <JsonLd data={faqSchema([
+          { question:'What is the Milestone Tracker?', answer:"Our Milestone Tracker helps you monitor your child's developmental progress against age-appropriate milestones in speech, motor skills, social development, and cognitive growth. Early identification of delays leads to better outcomes." },
+          { question:'How does the Screen Time Calculator work?', answer:'The Screen Time Calculator provides personalised, age-based screen time recommendations using the latest pediatric research from the AAP. Input your child\'s age to get recommended daily limits for educational and entertainment screen time.' },
+          { question:'What is the Parenting Style Quiz?', answer:'The Parenting Style Quiz asks evidence-based questions about your parenting approach across discipline, emotional connection, and autonomy. You get a detailed breakdown of your style — authoritative, permissive, authoritarian, or uninvolved — with tailored guidance for your family.' },
+        ])} />
+      </SEOHead>
+
       <header className="resources-header">
         <h1>Tools Built for Real Parents</h1>
         <p>Interactive calculators, checklists, and guides you can use today—no account required.</p>

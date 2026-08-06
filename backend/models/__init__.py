@@ -24,6 +24,11 @@ class User(Base):
         default=SubscriptionTier.free,
         nullable=False,
     )
+    is_admin = Column(Boolean, default=False)
+    stripe_customer_id = Column(String, nullable=True, unique=True)
+    stripe_subscription_id = Column(String, nullable=True)
+    subscription_end_date = Column(DateTime(timezone=True), nullable=True)
+    last_active_at = Column(DateTime(timezone=True), nullable=True)
 
     children = relationship("ChildProfile", back_populates="user", cascade="all, delete-orphan")
     saved_articles = relationship("SavedArticle", back_populates="user", cascade="all, delete-orphan")
@@ -55,6 +60,7 @@ class SavedArticle(Base):
 
 
 class BookingStatus(str, enum.Enum):
+    pending_payment = "pending_payment"
     pending = "pending"
     confirmed = "confirmed"
     done = "done"
@@ -74,5 +80,6 @@ class ExpertBooking(Base):
     )
     notes = Column(String, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+    stripe_session_id = Column(String, nullable=True)
 
     user = relationship("User", back_populates="bookings")

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import articlesData from '../data/articles.json';
+import SEOHead from '../components/SEOHead';
 import '../styles/app.css';
 
 const categories = [
@@ -19,6 +20,13 @@ export default function Articles() {
 
   return (
     <div className="articles-page">
+      <SEOHead
+        title="Expert Parenting Articles — Toddler Milestones, Child Anxiety, Screen Time & More"
+        description="Evidence-based parenting articles covering toddler milestones, child anxiety signs, sleep training toddlers, positive discipline techniques, and raising kids in the AI age. Written by certified pediatricians and child psychologists."
+        keywords="parenting tips 2026, toddler milestones, child anxiety signs, sleep training toddler, positive discipline, raising kids AI age, screen time kids age"
+        canonicalUrl="https://rooted-parenting.com/articles"
+      />
+
       {/* Page header */}
       <header className="articles-header">
         <h1>Expert Parenting Guides</h1>

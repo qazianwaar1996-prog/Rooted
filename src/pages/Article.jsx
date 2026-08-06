@@ -1,7 +1,38 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import articlesData from '../data/articles.json';
+import SEOHead from '../components/SEOHead';
+import { JsonLd, articleSchema, breadcrumbSchema } from '../components/StructuredData';
 import '../styles/app.css';
+
+const ARTICLE_OG_IMAGES = {
+  'screen-time-by-age-2026-complete-guide': 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&q=80',
+  'how-to-talk-to-your-child-about-ai': 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=80',
+  'why-your-toddler-says-no-to-everything': 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1200&q=80',
+  'toddler-milestones-at-18-months-whats-normal': 'https://images.unsplash.com/photo-1555255707-c07966088b7b?w=1200&q=80',
+  'why-your-child-wont-sleep-and-what-actually-works': 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=1200&q=80',
+  'discipline-without-yelling-7-techniques-that-work': 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200&q=80',
+  'raising-emotionally-resilient-kids-in-2026': 'https://images.unsplash.com/photo-1472162072942-ca514feb0603?w=1200&q=80',
+  'signs-your-child-has-anxiety-and-what-to-do': 'https://images.unsplash.com/photo-1466781782265-5fe11bb0b8c3?w=1200&q=80',
+  'how-to-raise-kids-who-are-smarter-than-ai': 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&q=80',
+  'honest-screen-time-rules-for-2026': 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80',
+  'age-by-age-guide-to-child-development-0-12': 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1200&q=80',
+  'what-to-do-when-your-child-has-tantrums-in-public': 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=1200&q=80',
+};
+
+const TAG_KEYWORDS = {
+  'Screen Time': 'screen time kids age, screen time recommendations 2026',
+  'AI': 'raising kids AI age, AI and children',
+  'Sleep': 'sleep training toddler, baby sleep tips',
+  'Discipline': 'positive discipline, discipline without yelling',
+  'Development': 'toddler milestones, child development stages',
+  'Milestones': 'toddler milestones, 18 month milestones',
+  'Behavior': 'toddler behavior, child behavior management',
+  'Anxiety': 'child anxiety signs, childhood anxiety symptoms',
+  'Teen': 'teen parenting tips, adolescent mental health',
+  'Resilience': 'raising resilient kids, emotional resilience children',
+  'Tantrums': 'toddler tantrums, public tantrum tips',
+};
 
 export default function ArticlePage() {
   const { slug } = useParams();
@@ -27,10 +58,42 @@ export default function ArticlePage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const articleUrl = `https://rooted-parenting.com/articles/${article.slug}`;
+  const ogImage = ARTICLE_OG_IMAGES[article.slug] || 'https://rooted-parenting.com/og-default.jpg';
+  const keywordList = article.tags.map(t => TAG_KEYWORDS[t] || t.toLowerCase()).join(', ');
+
   return (
     <div className="article-page">
+      <SEOHead
+        title={article.title}
+        description={article.excerpt}
+        ogImage={ogImage}
+        ogType="article"
+        canonicalUrl={articleUrl}
+        keywords={`${keywordList}, parenting tips 2026`}
+      >
+        <JsonLd data={articleSchema({
+          title: article.title,
+          description: article.excerpt,
+          authorName: article.author.name,
+          datePublished: article.datePublished,
+          imageUrl: ogImage,
+          url: articleUrl,
+        })} />
+        <JsonLd data={breadcrumbSchema([
+          { name: 'Rooted', url: 'https://rooted-parenting.com' },
+          { name: 'Articles', url: 'https://rooted-parenting.com/articles' },
+          { name: article.title, url: articleUrl },
+        ])} />
+        <meta name="author" content={article.author.name} />
+        <meta property="article:published_time" content={article.datePublished} />
+        <meta property="article:author" content={article.author.name} />
+        {article.tags.map(tag => (
+          <meta property="article:tag" content={tag} key={tag} />
+        ))}
+      </SEOHead>
+
       <article className="article-content">
-        {/* Article hero */}
         <header className="article-hero">
           <a href="#" className="article-hero-tag" style={{ color: getCategoryColor(article.category) }}>
             {article.category}
@@ -51,7 +114,6 @@ export default function ArticlePage() {
           </div>
         </header>
 
-        {/* Article body */}
         <div className="article-body">
           <h2>Why This Matters</h2>
           <p>
@@ -91,7 +153,6 @@ export default function ArticlePage() {
           </p>
         </div>
 
-        {/* Author bio */}
         <aside className="author-bio">
           <div className="author-bio-avatar" aria-label={`${article.author.name} avatar`}>
             {article.author.avatar}
@@ -104,7 +165,6 @@ export default function ArticlePage() {
           </div>
         </aside>
 
-        {/* Share buttons */}
         <div className="share-buttons">
           <span className="share-label">Share this article</span>
           <a href="#" className="share-btn share-twitter" aria-label="Share on Twitter">Twitter</a>
@@ -115,9 +175,7 @@ export default function ArticlePage() {
         </div>
       </article>
 
-      {/* Sticky sidebar */}
       <aside className="article-sidebar" aria-label="Article sidebar">
-        {/* Table of contents */}
         <nav className="toc-card" aria-label="Table of contents">
           <h3>In This Article</h3>
           <ul>
@@ -129,7 +187,6 @@ export default function ArticlePage() {
           </ul>
         </nav>
 
-        {/* Email capture */}
         <div className="toc-email-card">
           <h3>Parenting support, straight to your inbox</h3>
           <p>Get weekly expert advice, new guides, and community highlights.</p>
@@ -140,7 +197,6 @@ export default function ArticlePage() {
           <p className="toc-email-note">No spam. Unsubscribe anytime.</p>
         </div>
 
-        {/* Related articles */}
         <div className="toc-related">
           <h3>Related Articles</h3>
           <div className="related-list">

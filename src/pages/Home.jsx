@@ -1,12 +1,30 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Sidebar from '../components/Sidebar';
+import SEOHead from '../components/SEOHead';
+import { JsonLd, organizationSchema } from '../components/StructuredData';
 import '../styles/app.css';
 
 export default function Home() {
   return (
     <div className="page-wrap">
+      <SEOHead
+        title="Rooted — Growing Together. Raising Kind Humans. | Parenting Tips 2026"
+        description="Evidence-based parenting guidance for every stage. Expert articles on toddler milestones, child anxiety signs, sleep training, positive discipline, and raising kids in the AI age. Join 75,000+ parents."
+        keywords="parenting tips 2026, toddler milestones, child anxiety signs, sleep training toddler, positive discipline, raising kids AI age, screen time kids age"
+        canonicalUrl="https://rooted-parenting.com"
+      >
+        <JsonLd data={organizationSchema()} />
+        <script type="application/ld+json">{JSON.stringify({
+          '@context':'https://schema.org',
+          '@type':'WebSite',
+          name:'Rooted',
+          url:'https://rooted-parenting.com',
+          potentialAction:{'@type':'SearchAction',target:'https://rooted-parenting.com/articles?q={search_term_string}', 'query-input':'required name=search_term_string'},
+        })}</script>
+      </SEOHead>
+
       <div className="main-area">
-      {/* Hero Section */}
       <section className="hero">
         <div className="hero-left">
           <div className="hero-trust-badge">
@@ -27,11 +45,7 @@ export default function Home() {
           </div>
           <div className="hero-social-proof">
             <div className="proof-avatars">
-              <span>👩</span>
-              <span>👨</span>
-              <span>👩</span>
-              <span>👨</span>
-              <span>👩</span>
+              <span>👩</span><span>👨</span><span>👩</span><span>👨</span><span>👩</span>
             </div>
             <div className="proof-text">
               <div className="proof-stars">★★★★★</div>
@@ -40,46 +54,41 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Hero photo + floating cards */}
         <div className="hero-photo">
-          <img
-            className="hero-photo-img"
+          <img className="hero-photo-img" loading="lazy"
             src="https://images.unsplash.com/photo-1544126592-807ade215a0b?w=900&q=85"
-            alt="Mother and baby sharing a warm moment"
-          />
+            alt="Mother and baby sharing a warm, loving moment at home — parenting tips and bonding" />
           <div className="leaf-deco" />
-
           <div className="article-cards">
-            <a href="#" className="art-card">
-              <img className="art-thumb" src="https://images.unsplash.com/photo-1503455637927-730bce8583c0?w=120&q=80" alt="Child" />
+            <Link to="/articles/screen-time-by-age-2026-complete-guide" className="art-card">
+              <img className="art-thumb" loading="lazy" src="https://images.unsplash.com/photo-1503455637927-730bce8583c0?w=120&q=80" alt="Child playing with educational toy" />
               <div className="art-info">
                 <div className="art-tag">New Article</div>
-                <div className="art-title">Helping Kids Manage Big Emotions</div>
-                <div className="art-read">7 min read</div>
-              </div>
-            </a>
-            <a href="#" className="art-card">
-              <img className="art-thumb" src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=120&q=80" alt="Parents" />
-              <div className="art-info">
-                <div className="art-tag">Parent Story</div>
-                <div className="art-title">From Overwhelmed to Confident</div>
-                <div className="art-read">10 min read</div>
-              </div>
-            </a>
-            <a href="#" className="art-card">
-              <img className="art-thumb" src="https://images.unsplash.com/photo-1466781782265-5fe11bb0b8c3?w=120&q=80" alt="Growth" />
-              <div className="art-info">
-                <div className="art-tag">Guide</div>
-                <div className="art-title">Positive Discipline That Works</div>
+                <div className="art-title">Screen Time by Age: 2026 Guide</div>
                 <div className="art-read">12 min read</div>
               </div>
-            </a>
+            </Link>
+            <Link to="/articles/discipline-without-yelling-7-techniques-that-work" className="art-card">
+              <img className="art-thumb" loading="lazy" src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=120&q=80" alt="Happy family spending quality time together" />
+              <div className="art-info">
+                <div className="art-tag">Parent Story</div>
+                <div className="art-title">Positive Discipline That Works</div>
+                <div className="art-read">9 min read</div>
+              </div>
+            </Link>
+            <Link to="/articles/signs-your-child-has-anxiety-and-what-to-do" className="art-card">
+              <img className="art-thumb" loading="lazy" src="https://images.unsplash.com/photo-1466781782265-5fe11bb0b8c3?w=120&q=80" alt="Child learning and growing with nature-inspired activities" />
+              <div className="art-info">
+                <div className="art-tag">Guide</div>
+                <div className="art-title">Child Anxiety Signs & What To Do</div>
+                <div className="art-read">13 min read</div>
+              </div>
+            </Link>
             <Link to="/articles" className="art-view-all">View all articles →</Link>
           </div>
         </div>
       </section>
 
-      {/* Journey strip */}
       <section className="journey-strip">
         <div className="journey-label-col">
           <h2 className="journey-title">Your Parenting Journey</h2>
@@ -103,21 +112,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Feature icons */}
       <section className="features-strip">
         {[
           { icon: '🌿', name: 'Expert Guidance', desc: 'Advice from parenting experts and child psychologists.' },
-          { icon: '👨‍👩‍👧', name: 'Real Community', desc: 'Connect with parents who get it. You\'re not alone.' },
+          { icon: '👨‍👩‍👧', name: 'Real Community', desc: "Connect with parents who get it. You're not alone." },
           { icon: '🗂️', name: 'Practical Tools', desc: 'Printables, checklists and tools for everyday parenting.' },
           { icon: '🔬', name: 'Evidence-Based', desc: 'Trusted by experts. Backed by research.' },
           { icon: '🎓', name: 'Courses & Workshops', desc: 'Learn at your pace with step-by-step courses.' },
           { icon: '📚', name: 'Resources Library', desc: 'Articles, guides and downloads at your fingertips.' },
         ].map((feat) => (
-          <a key={feat.name} href="#" className="feat-item">
+          <Link key={feat.name} to="/resources" className="feat-item">
             <div className="feat-icon">{feat.icon}</div>
             <h3 className="feat-name">{feat.name}</h3>
             <p className="feat-desc">{feat.desc}</p>
-          </a>
+          </Link>
         ))}
       </section>
       </div>

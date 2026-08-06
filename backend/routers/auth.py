@@ -1,5 +1,5 @@
 import os
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
@@ -9,6 +9,7 @@ from database import get_db
 from models import User
 from schemas.user import UserCreate, UserLogin, UserOut, Token
 from auth.security import get_password_hash, verify_password, create_access_token, decode_token
+from routers.emails import trigger_welcome_email
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -16,7 +17,11 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 
 @router.post("/register", response_model=UserOut)
-async def register(user_data: UserCreate, db: AsyncSession = Depends(get_db)):
+async def register(
+    user_data: UserCreate,
+    background_tasks: BackgroundTasks,
+    db: AsyncSession = Depends(get_db),
+):
     result = await db.execute(select(User).where(User.email == user_data.email))
     existing = result.scalars().first()
     if existing:
@@ -34,6 +39,10 @@ async def register(user_data: UserCreate, db: AsyncSession = Depends(get_db)):
     db.add(user)
     await db.commit()
     await db.refresh(user)
+
+    # Send welcome email in the background
+    background_tasks.add_task(trigger_welcome_email, user)
+
     return user
 
 
