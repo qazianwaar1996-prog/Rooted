@@ -1,0 +1,92 @@
+/* ============================================
+   ROOTED — Design System Tokens
+   ============================================ */
+
+:root {
+  /* Brand palette */
+  --ivory:        #F5F0E8;
+  --forest:       #2A4A1E;
+  --forest-mid:   #3D6B2C;
+  --forest-lt:    #5A8F45;
+  --amber:        #B8792A;
+  --amber-lt:     #D4943A;
+  --ink:          #1C1A16;
+  --mid:          #4A4640;
+  --soft:         #9A9288;
+  --stone:        #8A8070;
+
+  /* Surfaces */
+  --warm-white:   #FEFCF8;
+  --sand:         #E8DECA;
+  --sand-lt:      #F0E8D8;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Radius */
+  --radius-card:  12px;
+  --radius-btn:   6px;
+  --radius-badge: 100px;
+
+  /* Shadows */
+  --shadow-sm:    0 1px 3px rgba(42, 74, 30, 0.08);
+  --shadow-md:    0 2px 12px rgba(42, 74, 30, 0.06);
+  --shadow-lg:    0 8px 30px rgba(42, 74, 30, 0.12);
+  --shadow-card:  0 2px 12px rgba(42, 74, 30, 0.06);
+  --shadow-card-hover: 0 4px 20px rgba(42, 74, 30, 0.10);
+
+  /* Spacing scale (4px base) */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+}
+
+/* ============================================
+   Global reset & base styles
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--ivory);
+  color: var(--ink);
+  overflow-x: hidden;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ============================================
+   Utility helpers (design-system only)
+   ============================================ */
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
+}
+
+@media (max-width: 860px) {
+  .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+}
