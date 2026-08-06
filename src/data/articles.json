@@ -1,0 +1,230 @@
+[
+  {
+    "slug": "screen-time-by-age-2026-complete-guide",
+    "title": "Screen Time by Age: The 2026 Complete Guide",
+    "excerpt": "Evidence-based recommendations for how much screen time is healthy at every stage of childhood, backed by the latest pediatric research.",
+    "category": "School Age",
+    "author": {
+      "name": "Dr. Sarah Chen",
+      "credential": "Developmental Pediatrician",
+      "avatar": "SC"
+    },
+    "readTime": "12 min",
+    "datePublished": "2026-07-28",
+    "featured": true,
+    "tags": [
+      "Screen Time",
+      "School Age",
+      "Guides"
+    ]
+  },
+  {
+    "slug": "how-to-talk-to-your-child-about-ai",
+    "title": "How to Talk to Your Child About AI",
+    "excerpt": "Practical conversation scripts and age-appropriate explanations for helping children understand artificial intelligence without fear or confusion.",
+    "category": "AI Age",
+    "author": {
+      "name": "Dr. Marcus Rivera",
+      "credential": "Child Psychologist",
+      "avatar": "MR"
+    },
+    "readTime": "8 min",
+    "datePublished": "2026-07-25",
+    "featured": false,
+    "tags": [
+      "AI",
+      "Communication",
+      "AI Age"
+    ]
+  },
+  {
+    "slug": "why-your-toddler-says-no-to-everything",
+    "title": "Why Your Toddler Says No to Everything",
+    "excerpt": "Understanding the developmental purpose behind toddler defiance and how to respond with empathy rather than power struggles.",
+    "category": "Toddler",
+    "author": {
+      "name": "Aisha Patel",
+      "credential": "Early Childhood Educator",
+      "avatar": "AP"
+    },
+    "readTime": "6 min",
+    "datePublished": "2026-07-22",
+    "featured": false,
+    "tags": [
+      "Behavior",
+      "Toddler",
+      "Discipline"
+    ]
+  },
+  {
+    "slug": "toddler-milestones-at-18-months-whats-normal",
+    "title": "Toddler Milestones at 18 Months: What's Normal",
+    "excerpt": "A comprehensive breakdown of speech, motor, and social milestones at 18 months, plus when to seek professional guidance.",
+    "category": "Toddler",
+    "author": {
+      "name": "Dr. Emily Watson",
+      "credential": "Pediatric Neurologist",
+      "avatar": "EW"
+    },
+    "readTime": "10 min",
+    "datePublished": "2026-07-18",
+    "featured": false,
+    "tags": [
+      "Development",
+      "Toddler",
+      "Milestones"
+    ]
+  },
+  {
+    "slug": "why-your-child-wont-sleep-and-what-actually-works",
+    "title": "Why Your Child Won't Sleep (And What Actually Works)",
+    "excerpt": "Sleep science meets real parenting: evidence-based strategies for bedtime battles, night wakings, and age-appropriate sleep schedules.",
+    "category": "Newborn",
+    "author": {
+      "name": "Dr. Sarah Chen",
+      "credential": "Developmental Pediatrician",
+      "avatar": "SC"
+    },
+    "readTime": "14 min",
+    "datePublished": "2026-07-15",
+    "featured": true,
+    "tags": [
+      "Sleep",
+      "Newborn",
+      "Health"
+    ]
+  },
+  {
+    "slug": "discipline-without-yelling-7-techniques-that-work",
+    "title": "Discipline Without Yelling: 7 Techniques That Work",
+    "excerpt": "Calm, effective discipline strategies that teach rather than punish, backed by behavioral psychology and decades of family therapy practice.",
+    "category": "Preschool",
+    "author": {
+      "name": "Dr. Marcus Rivera",
+      "credential": "Child Psychologist",
+      "avatar": "MR"
+    },
+    "readTime": "9 min",
+    "datePublished": "2026-07-12",
+    "featured": false,
+    "tags": [
+      "Discipline",
+      "Preschool",
+      "Behavior"
+    ]
+  },
+  {
+    "slug": "raising-emotionally-resilient-kids-in-2026",
+    "title": "Raising Emotionally Resilient Kids in 2026",
+    "excerpt": "The research-backed skills that build emotional resilience: emotional literacy, cognitive flexibility, and healthy stress response patterns.",
+    "category": "School Age",
+    "author": {
+      "name": "Aisha Patel",
+      "credential": "Early Childhood Educator",
+      "avatar": "AP"
+    },
+    "readTime": "11 min",
+    "datePublished": "2026-07-08",
+    "featured": false,
+    "tags": [
+      "Resilience",
+      "Emotions",
+      "Mental Health"
+    ]
+  },
+  {
+    "slug": "signs-your-child-has-anxiety-and-what-to-do",
+    "title": "Signs Your Child Has Anxiety (And What To Do)",
+    "excerpt": "Identifying anxiety in children of all ages, understanding the root causes, and practical steps parents can take at home and with professionals.",
+    "category": "Teen",
+    "author": {
+      "name": "Dr. Emily Watson",
+      "credential": "Pediatric Neurologist",
+      "avatar": "EW"
+    },
+    "readTime": "13 min",
+    "datePublished": "2026-07-05",
+    "featured": false,
+    "tags": [
+      "Anxiety",
+      "Teen",
+      "Mental Health"
+    ]
+  },
+  {
+    "slug": "how-to-raise-kids-who-are-smarter-than-ai",
+    "title": "How to Raise Kids Who Are Smarter Than AI",
+    "excerpt": "The uniquely human skills that artificial intelligence cannot replicate: critical thinking, empathy, creativity, and ethical reasoning.",
+    "category": "AI Age",
+    "author": {
+      "name": "Dr. Marcus Rivera",
+      "credential": "Child Psychologist",
+      "avatar": "MR"
+    },
+    "readTime": "10 min",
+    "datePublished": "2026-07-01",
+    "featured": false,
+    "tags": [
+      "AI",
+      "Critical Thinking",
+      "Future Skills"
+    ]
+  },
+  {
+    "slug": "honest-screen-time-rules-for-2026",
+    "title": "The Honest Screen Time Rules for 2026",
+    "excerpt": "Realistic screen time limits that account for education, entertainment, and social connection\u2014without unrealistic expectations for modern families.",
+    "category": "AI Age",
+    "author": {
+      "name": "Dr. Sarah Chen",
+      "credential": "Developmental Pediatrician",
+      "avatar": "SC"
+    },
+    "readTime": "8 min",
+    "datePublished": "2026-06-28",
+    "featured": false,
+    "tags": [
+      "Screen Time",
+      "Rules",
+      "AI Age"
+    ]
+  },
+  {
+    "slug": "age-by-age-guide-to-child-development-0-12",
+    "title": "Age-by-Age Guide to Child Development: 0\u201312 Years",
+    "excerpt": "A comprehensive overview of cognitive, emotional, social, and physical development milestones from birth through early adolescence.",
+    "category": "All",
+    "author": {
+      "name": "Dr. Emily Watson",
+      "credential": "Pediatric Neurologist",
+      "avatar": "EW"
+    },
+    "readTime": "16 min",
+    "datePublished": "2026-06-25",
+    "featured": true,
+    "tags": [
+      "Development",
+      "Guide",
+      "All Ages"
+    ]
+  },
+  {
+    "slug": "what-to-do-when-your-child-has-tantrums-in-public",
+    "title": "What to Do When Your Child Has Tantrums in Public",
+    "excerpt": "Calm, effective responses to public meltdowns that preserve your child's dignity, your own sanity, and teach emotional regulation over time.",
+    "category": "Toddler",
+    "author": {
+      "name": "Aisha Patel",
+      "credential": "Early Childhood Educator",
+      "avatar": "AP"
+    },
+    "readTime": "7 min",
+    "datePublished": "2026-06-22",
+    "featured": false,
+    "tags": [
+      "Tantrums",
+      "Public",
+      "Toddler"
+    ]
+  }
+]

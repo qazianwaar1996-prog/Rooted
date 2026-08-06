@@ -1,0 +1,306 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Sarah Chen",
+    "credential": "PhD, Developmental Pediatrician",
+    "speciality": "Child Psychologist",
+    "avatar": "SC",
+    "rating": 4.9,
+    "reviews": 324,
+    "languages": [
+      "English",
+      "Mandarin"
+    ],
+    "priceRange": "$180 – $220",
+    "available": true,
+    "bio": "Dr. Sarah Chen is a board-certified developmental pediatrician with over 15 years of clinical experience. She specializes in early childhood development, behavioral interventions, and family-centered care.",
+    "specialities": [
+      "Behavioral Assessment",
+      "Emotional Regulation",
+      "Family Therapy"
+    ],
+    "sessionFormats": [
+      "Video Call",
+      "Voice Call"
+    ],
+    "responseTime": "Within 4 hours",
+    "sessions": 1247,
+    "reviewsData": [
+      {
+        "parent": "Jessica M.",
+        "date": "2026-07-20",
+        "rating": 5,
+        "text": "Dr. Chen gave us practical strategies we could use the same day. Our toddler's sleep improved within a week."
+      },
+      {
+        "parent": "David K.",
+        "date": "2026-06-18",
+        "rating": 5,
+        "text": "Incredibly knowledgeable and kind. She listened to our concerns without judgment and guided us with evidence-based advice."
+      },
+      {
+        "parent": "Aisha K.",
+        "date": "2026-05-30",
+        "rating": 4,
+        "text": "Very professional. The session was well-structured and we left with a clear action plan for our child's anxiety."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Dr. Marcus Rivera",
+    "credential": "PhD, Clinical Psychologist",
+    "speciality": "Child Psychologist",
+    "avatar": "MR",
+    "rating": 4.8,
+    "reviews": 198,
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "priceRange": "$160 – $200",
+    "available": false,
+    "bio": "Dr. Marcus Rivera specializes in cognitive-behavioral therapy for children and adolescents. He has published extensively on anxiety disorders, emotional intelligence, and the impact of digital environments on developing minds.",
+    "specialities": [
+      "Anxiety",
+      "Digital Wellness",
+      "Cognitive Behavioral Therapy"
+    ],
+    "sessionFormats": [
+      "Video Call",
+      "Voice Call"
+    ],
+    "responseTime": "Within 8 hours",
+    "sessions": 892,
+    "reviewsData": [
+      {
+        "parent": "Sarah L.",
+        "date": "2026-07-15",
+        "rating": 5,
+        "text": "Marcus helped our 9-year-old understand and manage anxiety in a way that felt empowering rather than clinical."
+      },
+      {
+        "parent": "Mike T.",
+        "date": "2026-06-10",
+        "rating": 4,
+        "text": "Great insights into how screen time affects attention. Would recommend for any parent concerned about digital habits."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Emily Watson",
+    "credential": "MS, Certified Sleep Coach",
+    "speciality": "Sleep Coach",
+    "avatar": "EW",
+    "rating": 4.7,
+    "reviews": 156,
+    "languages": [
+      "English"
+    ],
+    "priceRange": "$140 – $180",
+    "available": true,
+    "bio": "Emily Watson is a certified pediatric sleep consultant with a background in neuroscience. She has supported over 800 families in establishing healthy, age-appropriate sleep patterns from newborn through preschool years.",
+    "specialities": [
+      "Infant Sleep",
+      "Toddler Sleep",
+      "Night Wakings"
+    ],
+    "sessionFormats": [
+      "Video Call",
+      "Voice Call"
+    ],
+    "responseTime": "Within 2 hours",
+    "sessions": 843,
+    "reviewsData": [
+      {
+        "parent": "Priya C.",
+        "date": "2026-07-22",
+        "rating": 5,
+        "text": "Within 3 nights of following Emily's plan, our baby was sleeping 7-hour stretches. Life-changing advice."
+      },
+      {
+        "parent": "Carlos M.",
+        "date": "2026-05-28",
+        "rating": 5,
+        "text": "Clear, compassionate, and incredibly practical. She understood our family's dynamics and adapted her recommendations perfectly."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Aisha Patel",
+    "credential": "MEd, Parenting Coach",
+    "speciality": "Parenting Coach",
+    "avatar": "AP",
+    "rating": 4.9,
+    "reviews": 287,
+    "languages": [
+      "English",
+      "Hindi"
+    ],
+    "priceRange": "$120 – $160",
+    "available": true,
+    "bio": "Aisha Patel brings over a decade of experience in early childhood education and family coaching. She specializes in positive discipline, emotional literacy, and building resilient family dynamics in multicultural households.",
+    "specialities": [
+      "Positive Discipline",
+      "Emotional Literacy",
+      "Multicultural Families"
+    ],
+    "sessionFormats": [
+      "Video Call"
+    ],
+    "responseTime": "Within 6 hours",
+    "sessions": 1103,
+    "reviewsData": [
+      {
+        "parent": "Robert D.",
+        "date": "2026-07-10",
+        "rating": 5,
+        "text": "Aisha's approach to discipline changed how I interact with my toddler. We're both calmer and more connected."
+      },
+      {
+        "parent": "Emma R.",
+        "date": "2026-06-05",
+        "rating": 5,
+        "text": "She gave us language and strategies that work with our 4-year-old's strong personality. Highly recommend."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Dr. James Whitmore",
+    "credential": "PhD, Child Nutritionist",
+    "speciality": "Nutritionist",
+    "avatar": "JW",
+    "rating": 4.6,
+    "reviews": 112,
+    "languages": [
+      "English"
+    ],
+    "priceRange": "$150 – $190",
+    "available": true,
+    "bio": "Dr. James Whitmore is a pediatric nutrition researcher and family wellness advisor. His work bridges the gap between nutritional science and practical family meal planning, with a focus on picky eating and food anxiety.",
+    "specialities": [
+      "Picky Eating",
+      "Food Anxiety",
+      "Family Nutrition"
+    ],
+    "sessionFormats": [
+      "Video Call",
+      "Voice Call"
+    ],
+    "responseTime": "Within 12 hours",
+    "sessions": 467,
+    "reviewsData": [
+      {
+        "parent": "Jessica M.",
+        "date": "2026-07-08",
+        "rating": 5,
+        "text": "Dr. Whitmore turned our mealtime battles into peaceful family time. The meal framework he provided is simple and effective."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Nina Rodriguez",
+    "credential": "MSW, Family Wellness Coach",
+    "speciality": "Parenting Coach",
+    "avatar": "NR",
+    "rating": 4.8,
+    "reviews": 203,
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "priceRange": "$130 – $170",
+    "available": false,
+    "bio": "Nina Rodriguez combines social work expertise with family wellness coaching. She helps parents navigate transitions, sibling dynamics, and the emotional demands of modern parenting with practical, heart-centered strategies.",
+    "specialities": [
+      "Sibling Dynamics",
+      "Life Transitions",
+      "Self-Care for Parents"
+    ],
+    "sessionFormats": [
+      "Video Call"
+    ],
+    "responseTime": "Within 8 hours",
+    "sessions": 678,
+    "reviewsData": [
+      {
+        "parent": "David K.",
+        "date": "2026-06-30",
+        "rating": 5,
+        "text": "Nina helped us prepare our 3-year-old for the new baby in a way that built excitement rather than anxiety."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Dr. Fatima Noor",
+    "credential": "PhD, Digital Wellness Specialist",
+    "speciality": "Digital Wellness",
+    "avatar": "FN",
+    "rating": 4.5,
+    "reviews": 89,
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "priceRange": "$140 – $180",
+    "available": true,
+    "bio": "Dr. Fatima Noor studies the intersection of technology and child development. She provides families with evidence-based screen time strategies, digital literacy frameworks, and family tech agreements that grow with children.",
+    "specialities": [
+      "Screen Time Strategy",
+      "Digital Literacy",
+      "Family Tech Agreements"
+    ],
+    "sessionFormats": [
+      "Video Call"
+    ],
+    "responseTime": "Within 6 hours",
+    "sessions": 321,
+    "reviewsData": [
+      {
+        "parent": "Aisha K.",
+        "date": "2026-07-14",
+        "rating": 5,
+        "text": "Fatima gave us a clear, realistic framework for managing screen time without constant battles. Our kids actually helped create the agreement."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Dr. Thomas Blake",
+    "credential": "MD, Pediatric Sleep Specialist",
+    "speciality": "Sleep Coach",
+    "avatar": "TB",
+    "rating": 4.7,
+    "reviews": 178,
+    "languages": [
+      "English"
+    ],
+    "priceRange": "$170 – $210",
+    "available": true,
+    "bio": "Dr. Thomas Blake is a pediatric sleep medicine specialist with a clinical practice spanning newborns through adolescence. He integrates medical assessment with behavioral sleep interventions for lasting family rest.",
+    "specialities": [
+      "Sleep Medicine",
+      "Newborn Sleep",
+      "Adolescent Sleep"
+    ],
+    "sessionFormats": [
+      "Video Call",
+      "Voice Call"
+    ],
+    "responseTime": "Within 24 hours",
+    "sessions": 654,
+    "reviewsData": [
+      {
+        "parent": "Sarah L.",
+        "date": "2026-06-22",
+        "rating": 5,
+        "text": "Dr. Blake identified a medical component we had missed. Once addressed, sleep improved dramatically. Highly knowledgeable."
+      }
+    ]
+  }
+]
