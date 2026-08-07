@@ -12,7 +12,10 @@ app = FastAPI(
 )
 
 # CORS for GitHub Pages frontend
-frontend_url = os.getenv("FRONTEND_URL", "https://rooted-app.github.io")
+frontend_url = os.getenv(
+    "FRONTEND_URL",
+    "https://qazianwaar1996-prog.github.io"
+)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[frontend_url, "http://localhost:5173", "http://localhost:3000"],
