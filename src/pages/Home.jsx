@@ -110,7 +110,7 @@ export default function Home() {
         </div>
         <div className="journey-track">
           {[
-            { icon: '🤰', name: 'Pregnancy', range: 'Preparing for\nyour little one' },
+            { icon: '🤰', name: 'Pregnancy', range: 'Preparing for your little one' },
             { icon: '🍼', name: 'Newborn', range: '0–12 months' },
             { icon: '🧸', name: 'Toddler', range: '1–3 years', active: true },
             { icon: '✏️', name: 'Preschool', range: '3–5 years' },
@@ -127,7 +127,7 @@ export default function Home() {
             >
               <span className="j-node" aria-hidden="true">{step.icon}</span>
               <span className="j-name">{step.name}</span>
-              <span className="j-range" dangerouslySetInnerHTML={{ __html: step.range }} />
+              <span className="j-range">{step.range}</span>
             </button>
           ))}
         </div>

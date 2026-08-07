@@ -83,3 +83,12 @@ class ExpertBooking(Base):
     stripe_session_id = Column(String, nullable=True)
 
     user = relationship("User", back_populates="bookings")
+
+
+class NewsletterSubscriber(Base):
+    __tablename__ = "newsletter_subscribers"
+
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(String, unique=True, index=True, nullable=False)
+    subscribed_at = Column(DateTime(timezone=True), server_default=func.now())
+    is_active = Column(Boolean, default=True)
