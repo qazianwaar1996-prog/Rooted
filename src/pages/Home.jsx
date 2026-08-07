@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import Sidebar from '../components/Sidebar';
 import SEOHead from '../components/SEOHead';
-import { JsonLd, organizationSchema } from '../components/StructuredData';
+import { organizationSchema } from '../components/StructuredData';
 import '../styles/app.css';
 
 export default function Home() {
@@ -16,7 +15,7 @@ export default function Home() {
         keywords="parenting tips 2026, toddler milestones, child anxiety signs, sleep training toddler, positive discipline, raising kids AI age, screen time kids age"
         canonicalUrl="https://rooted-parenting.com"
       >
-        <JsonLd data={organizationSchema()} />
+        <script type="application/ld+json">{JSON.stringify(organizationSchema())}</script>
         <script type="application/ld+json">{JSON.stringify({
           '@context':'https://schema.org',
           '@type':'WebSite',

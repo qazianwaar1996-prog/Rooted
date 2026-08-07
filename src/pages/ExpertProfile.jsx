@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import expertsData from '../data/experts.json';
 import SEOHead from '../components/SEOHead';
-import { JsonLd, personSchema, breadcrumbSchema } from '../components/StructuredData';
+import { personSchema, breadcrumbSchema } from '../components/StructuredData';
 import '../styles/app.css';
 
 export default function ExpertProfile() {
@@ -43,17 +43,17 @@ export default function ExpertProfile() {
         canonicalUrl={profileUrl}
         keywords={`${expert.name}, ${expert.speciality}, parenting expert, child psychologist, sleep coach`}
       >
-        <JsonLd data={personSchema({
+        <script type="application/ld+json">{JSON.stringify(personSchema({
           name: expert.name,
           jobTitle: expert.speciality,
           description: expert.bio,
           url: profileUrl,
-        })} />
-        <JsonLd data={breadcrumbSchema([
+        }))}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema([
           { name: 'Rooted', url: 'https://rooted-parenting.com' },
           { name: 'Experts', url: 'https://rooted-parenting.com/experts' },
           { name: expert.name, url: profileUrl },
-        ])} />
+        ]))}</script>
       </SEOHead>
 
       {/* Hero */}
