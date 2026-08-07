@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -34,7 +34,25 @@ function App() {
         <Reveal />
         <Navbar />
         <main className="main-content">
-          <Routes>
+          <Suspense fallback={
+            <div style={{
+              display:'flex', alignItems:'center',
+              justifyContent:'center', minHeight:'60vh',
+              flexDirection:'column', gap:16,
+              fontFamily:'var(--font-body)', color:'var(--stone)'
+            }}>
+              <div style={{
+                width:36, height:36,
+                border:'3px solid var(--sand)',
+                borderTopColor:'var(--forest)',
+                borderRadius:'50%',
+                animation:'spin 0.8s linear infinite'
+              }} />
+              <span style={{fontSize:'0.9rem'}}>Loading…</span>
+              <style>{'@keyframes spin{to{transform:rotate(360deg)}}'}</style>
+            </div>
+          }>
+            <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/articles" element={<Articles />} />
             <Route path="/articles/:slug" element={<ArticlePage />} />
@@ -59,7 +77,8 @@ function App() {
             <Route path="/dashboard" element={
               <ProtectedRoute><Dashboard /></ProtectedRoute>
             } />
-          </Routes>
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>

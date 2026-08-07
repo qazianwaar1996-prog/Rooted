@@ -1,7 +1,7 @@
 """Email router — triggers transactional emails via Resend."""
 
 from datetime import datetime
-from fastapi import APIRouter, BackgroundTasks
+from fastapi import APIRouter, BackgroundTasks, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from pydantic import BaseModel

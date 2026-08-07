@@ -9,13 +9,17 @@ from sqlalchemy import select, func, and_
 from database import get_db
 from models import User, ExpertBooking, ChildProfile, SubscriptionTier
 from auth.security import decode_token
+from routers.auth import oauth2_scheme
 
 router = APIRouter(prefix="/admin", tags=["admin"])
 
 ADMIN_EMAILS = os.getenv("ADMIN_EMAILS", "admin@rooted-parenting.com").split(",")
 
 
-async def require_admin(token: str = Depends(), db: AsyncSession = Depends(get_db)):
+async def require_admin(
+    token: str = Depends(oauth2_scheme),
+    db: AsyncSession = Depends(get_db)
+):
     """Dependency: require is_admin flag on the user."""
     email = decode_token(token)
     if not email:

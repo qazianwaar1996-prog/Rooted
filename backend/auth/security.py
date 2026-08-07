@@ -4,7 +4,12 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 import os
 
-SECRET_KEY = os.getenv("JWT_SECRET_KEY", "rooted-secret-key-change-in-production")
+SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+if not SECRET_KEY:
+    raise RuntimeError(
+        "JWT_SECRET_KEY environment variable is not set. "
+        "Generate one with: openssl rand -hex 32"
+    )
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24  # 24 hours
 
