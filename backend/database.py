@@ -5,10 +5,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Railway gives postgresql:// but asyncpg needs postgresql+asyncpg://
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
     "postgresql+asyncpg://postgres:postgres@localhost:5432/rooted"
 )
+
+# Fix Railway's URL format automatically
+if DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace(
+        "postgresql://", "postgresql+asyncpg://", 1
+    )
 
 engine = create_async_engine(
     DATABASE_URL,
