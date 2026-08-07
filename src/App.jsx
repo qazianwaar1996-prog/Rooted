@@ -5,6 +5,28 @@ import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 import Reveal from './components/Reveal';
 
+// ── Page loader shown while lazy chunks load ─────────────────
+const PageLoader = () => (
+  <div style={{
+    display:'flex', alignItems:'center',
+    justifyContent:'center', minHeight:'60vh',
+    flexDirection:'column', gap:'16px',
+    fontFamily:'var(--font-body)', color:'var(--stone)'
+  }}>
+    <div style={{
+      width:'36px', height:'36px',
+      border:'3px solid var(--sand)',
+      borderTopColor:'var(--forest)',
+      borderRadius:'50%',
+      animation:'spin 0.8s linear infinite'
+    }} />
+    <span style={{fontSize:'0.9rem'}}>Loading…</span>
+    <style>
+      {'@keyframes spin{to{transform:rotate(360deg)}}'}
+    </style>
+  </div>
+);
+
 // ── Code-split lazily loaded pages ──────────────────────────
 const Home = lazy(() => import('./pages/Home'));
 const Articles = lazy(() => import('./pages/Articles'));
@@ -29,29 +51,12 @@ const Onboarding = lazy(() => import('./pages/Onboarding'));
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Rooted">
       <div className="app-root">
         <Reveal />
         <Navbar />
         <main className="main-content">
-          <Suspense fallback={
-            <div style={{
-              display:'flex', alignItems:'center',
-              justifyContent:'center', minHeight:'60vh',
-              flexDirection:'column', gap:16,
-              fontFamily:'var(--font-body)', color:'var(--stone)'
-            }}>
-              <div style={{
-                width:36, height:36,
-                border:'3px solid var(--sand)',
-                borderTopColor:'var(--forest)',
-                borderRadius:'50%',
-                animation:'spin 0.8s linear infinite'
-              }} />
-              <span style={{fontSize:'0.9rem'}}>Loading…</span>
-              <style>{'@keyframes spin{to{transform:rotate(360deg)}}'}</style>
-            </div>
-          }>
+          <Suspense fallback={<PageLoader />}>
             <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/articles" element={<Articles />} />
