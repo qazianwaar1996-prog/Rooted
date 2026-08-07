@@ -4,6 +4,10 @@
  */
 
 export function JsonLd({ data }) {
+  // ⚠️ Do NOT nest <JsonLd> inside <Helmet>/<SEOHead> — react-helmet-async
+  // rejects component children and throws at render time.
+  // Inside SEOHead, use a raw tag instead:
+  //   <script type="application/ld+json">{JSON.stringify(data)}</script>
   return (
     <script type="application/ld+json">
       {JSON.stringify(data, null, 0)}

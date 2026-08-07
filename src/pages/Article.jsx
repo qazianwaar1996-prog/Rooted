@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import articlesData from '../data/articles.json';
 import SEOHead from '../components/SEOHead';
-import { JsonLd, articleSchema, breadcrumbSchema } from '../components/StructuredData';
+import { articleSchema, breadcrumbSchema } from '../components/StructuredData';
 import '../styles/app.css';
 
 const ARTICLE_OG_IMAGES = {
@@ -72,19 +72,19 @@ export default function ArticlePage() {
         canonicalUrl={articleUrl}
         keywords={`${keywordList}, parenting tips 2026`}
       >
-        <JsonLd data={articleSchema({
+        <script type="application/ld+json">{JSON.stringify(articleSchema({
           title: article.title,
           description: article.excerpt,
           authorName: article.author.name,
           datePublished: article.datePublished,
           imageUrl: ogImage,
           url: articleUrl,
-        })} />
-        <JsonLd data={breadcrumbSchema([
+        }))}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema([
           { name: 'Rooted', url: 'https://rooted-parenting.com' },
           { name: 'Articles', url: 'https://rooted-parenting.com/articles' },
           { name: article.title, url: articleUrl },
-        ])} />
+        ]))}</script>
         <meta name="author" content={article.author.name} />
         <meta property="article:published_time" content={article.datePublished} />
         <meta property="article:author" content={article.author.name} />

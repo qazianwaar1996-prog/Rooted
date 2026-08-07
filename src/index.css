@@ -1,0 +1,10 @@
+/*
+ * Global stylesheet aggregator — imported once by src/main.jsx.
+ *
+ * Pulls in the shared global styles so main.jsx has a single
+ * './index.css' import. Load order is preserved from the previous
+ * main.jsx: design-system.css is imported directly there, then
+ * these two follow it.
+ */
+@import './styles/components.css';
+@import './styles/app.css';

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
-import { JsonLd, faqSchema } from '../components/StructuredData';
+import { faqSchema } from '../components/StructuredData';
 import '../styles/app.css';
 
 const tools = [
@@ -25,11 +25,11 @@ export default function Resources() {
         keywords="toddler milestones, screen time kids age, parenting style quiz, milestone tracker, screen time calculator"
         canonicalUrl="https://rooted-parenting.com/resources"
       >
-        <JsonLd data={faqSchema([
+        <script type="application/ld+json">{JSON.stringify(faqSchema([
           { question:'What is the Milestone Tracker?', answer:"Our Milestone Tracker helps you monitor your child's developmental progress against age-appropriate milestones in speech, motor skills, social development, and cognitive growth. Early identification of delays leads to better outcomes." },
           { question:'How does the Screen Time Calculator work?', answer:'The Screen Time Calculator provides personalised, age-based screen time recommendations using the latest pediatric research from the AAP. Input your child\'s age to get recommended daily limits for educational and entertainment screen time.' },
           { question:'What is the Parenting Style Quiz?', answer:'The Parenting Style Quiz asks evidence-based questions about your parenting approach across discipline, emotional connection, and autonomy. You get a detailed breakdown of your style — authoritative, permissive, authoritarian, or uninvolved — with tailored guidance for your family.' },
-        ])} />
+        ]))}</script>
       </SEOHead>
 
       <header className="resources-header" data-reveal="up">
